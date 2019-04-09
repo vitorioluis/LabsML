@@ -23,9 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'xp(t#sm+()%eryo-**+7$(2m%ntpgcejr04+#^xtdmdf9t8(h^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+# ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -43,7 +44,6 @@ INSTALLED_APPS = [
     # apps
     'LabsML.core',
     'LabsML.ML',  # modelos de Machine Learning
-    'LabsML.RF'  # reconhecimento facial
 
 ]
 
@@ -77,16 +77,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'LabsML.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
@@ -115,6 +105,7 @@ TIME_ZONE = 'America/Sao_Paulo'
 USE_I18N = True
 
 USE_L10N = True
+
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
@@ -126,4 +117,25 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'LabsML/core', 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'LabsML', 'media')
 MODELOS = os.path.join(BASE_DIR, 'LabsML', 'modelos')
 
-URL_RAIZ = 'http://127.0.0.1:8081/'
+URL_RAIZ = 'http://labsml.herokuapp.com'
+
+
+# Heroku settings
+import dj_database_url
+
+DATABASES = {
+    'default':  dj_database_url.config(),
+}
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
+
+
+try:
+    from LabsML.local_settings import *
+except ImportError:
+    pass
+
