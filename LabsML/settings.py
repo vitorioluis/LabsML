@@ -26,7 +26,6 @@ SECRET_KEY = 'xp(t#sm+()%eryo-**+7$(2m%ntpgcejr04+#^xtdmdf9t8(h^'
 DEBUG = False
 
 # ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
-ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -120,20 +119,12 @@ MODELOS = os.path.join(BASE_DIR, 'LabsML', 'modelos')
 URL_RAIZ = 'https://labsml.herokuapp.com'
 
 
-# Heroku settings
-# import dj_database_url
-#
-# DATABASES = {
-#     'default':  dj_database_url.config(),
-# }
+Heroku settings
+import dj_database_url
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default':  dj_database_url.config(),
 }
-
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -147,3 +138,22 @@ try:
 except ImportError:
     pass
 
+
+
+# local_settings.py
+# import os
+#
+# BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+#
+# DEBUG = True
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+#
+#
+#
+# URL_RAIZ = 'http://127.0.0.1:8081/'
