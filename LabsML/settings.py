@@ -117,15 +117,23 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'LabsML/core', 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'LabsML', 'media')
 MODELOS = os.path.join(BASE_DIR, 'LabsML', 'modelos')
 
-URL_RAIZ = 'http://labsml.herokuapp.com'
+URL_RAIZ = 'https://labsml.herokuapp.com'
 
 
 # Heroku settings
-import dj_database_url
+# import dj_database_url
+#
+# DATABASES = {
+#     'default':  dj_database_url.config(),
+# }
 
 DATABASES = {
-    'default':  dj_database_url.config(),
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
+
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
