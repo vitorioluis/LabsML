@@ -1,5 +1,7 @@
 ## LabsML
 
+### Deploy: https://labsml.herokuapp.com/
+
 ##### A ideia é fazer o deploy(colocar em produção) dos modelos disponíveis em https://github.com/vitorioluis/Machine-Learning para rodar em uma interface web.
 
 Utilizando Python/Django e bootstrap para interface, podemos executar modelos de 
