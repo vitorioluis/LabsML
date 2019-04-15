@@ -7,12 +7,13 @@
 
 
 {% if texto %}
-<div class="jumbotron">
-    <div class="container">
-        <h1 class="display-5">{{ texto_title }}</h1>
+<div class="alert alert-secondary" role="alert">
+     <div class="container">
+        <h4 class="display-5">{{ texto_title }}</h4>
         <p>{{ texto }}</p>
     </div>
 </div>
+
 {% endif %}
 
 

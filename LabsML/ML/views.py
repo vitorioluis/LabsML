@@ -101,11 +101,17 @@ class LogisticIris(CreateView):
     form_class = IrisForm
     success_url = reverse_lazy('core:home')
 
+    __texto_title='Regressão Logistica Dataset Íris'
+    __texto='O conjunto de dados contém 3 classes de 50 instâncias cada, onde cada classe se refere a um tipo de '
+    __texto+='planta da íris. Com esse dataset vamos aplicar a regressão logística para obter a classificação.'
+
+
     def get_context_data(self, **kwargs):
         context = super(LogisticIris, self).get_context_data(**kwargs)
         context['title'] = self.__title
-        context['texto_title'] = 'Regressão Logistica Dataset Íris'
-        context['texto'] = 'O conjunto de dados contém 3 classes de 50 instâncias cada, onde cada classe se refere a um tipo de planta da íris. Com esse dataset vamos aplicar a regressão logística para obter a classificação.'
+        context['texto_title'] = self.__texto_title
+        context['texto'] = self.__texto
+
         return context
 
     def post(self, request, *args, **kwargs):
@@ -117,6 +123,8 @@ class LogisticIris(CreateView):
             lst = [float(str(n).replace(',', '.'))
                    for n in form.cleaned_data.values()]
             context['predict'], context['prob'] = mod_regressao_logistica(lst)
+            context['texto_title'] = self.__texto_title
+            context['texto'] = self.__texto
 
         return render(request, self.template_name, context)
 
@@ -141,11 +149,15 @@ class LinearAcoes(CreateView):
     form_class = AcoesForm
     success_url = reverse_lazy('core:home')
 
+    __texto_title = 'Regressão Linear Dataset APPLE'
+    __texto = 'Dataset com informações de vendas dária de ações de 12/12/1980 à 04/02/2019. '
+    __texto +='Neste modelo vamos aplicar a Regresão Linear para prever valores futuros.'
+
     def get_context_data(self, **kwargs):
         context = super(LinearAcoes, self).get_context_data(**kwargs)
         context['title'] = self.__title
-        context['texto_title'] = 'Regressão Linear Dataset APPLE'
-        context['texto'] = 'Dataset com informações de vendas dária de ações de 12/12/1980 à 04/02/2019. Neste modelo vamos aplicar a Regresão Linear para prever valores futuros.'
+        context['texto_title'] = self.__texto_title
+        context['texto'] = self.__texto
         return context
 
     def post(self, request, *args, **kwargs):
@@ -156,6 +168,8 @@ class LinearAcoes(CreateView):
             lst = [float(str(n).replace(',', '.'))
                    for n in form.cleaned_data.values()]
             context['predict'] = mod_regressao_linear(lst)
+            context['texto_title'] = self.__texto_title
+            context['texto'] = self.__texto
 
         return render(request, self.template_name, context)
 
