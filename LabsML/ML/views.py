@@ -104,6 +104,8 @@ class LogisticIris(CreateView):
     def get_context_data(self, **kwargs):
         context = super(LogisticIris, self).get_context_data(**kwargs)
         context['title'] = self.__title
+        context['texto_title'] = 'Regressão Logistica Dataset Íris'
+        context['texto'] = 'O conjunto de dados contém 3 classes de 50 instâncias cada, onde cada classe se refere a um tipo de planta da íris. Com esse dataset vamos aplicar a regressão logística para obter a classificação.'
         return context
 
     def post(self, request, *args, **kwargs):
@@ -142,6 +144,8 @@ class LinearAcoes(CreateView):
     def get_context_data(self, **kwargs):
         context = super(LinearAcoes, self).get_context_data(**kwargs)
         context['title'] = self.__title
+        context['texto_title'] = 'Regressão Linear Dataset APPLE'
+        context['texto'] = 'Dataset com informações de vendas dária de ações de 12/12/1980 à 04/02/2019. Neste modelo vamos aplicar a Regresão Linear para prever valores futuros.'
         return context
 
     def post(self, request, *args, **kwargs):
