@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 
 {% block jumbotron%}
 <!-- Main jumbotron for a primary marketing message or call to action -->
@@ -8,7 +8,16 @@
         <h1 class="display-3">Machine Learning </h1>
         <p>A idéia desse simples projeto é demostrar na prática alguns modelos de machine learning utilizando
             Django.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        <a href="https://www.linkedin.com/in/vitorioluis" target="_blank">
+            <img src="{% static 'img/linkdin.png' %}" width="30" height="30" />
+        </a>
+
+        <a href="https://github.com/vitorioluis" target="_blank">
+            <img src="{% static 'img/git.png' %}" width="30" height="30"  />
+        </a>
+
     </div>
 </div>
 {% endblock %}
+
+https://github.com/vitorioluis
