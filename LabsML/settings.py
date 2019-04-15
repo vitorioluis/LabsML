@@ -119,7 +119,7 @@ MODELOS = os.path.join(BASE_DIR, 'LabsML', 'modelos')
 URL_RAIZ = 'https://labsml.herokuapp.com'
 
 
-Heroku settings
+####Heroku settings
 import dj_database_url
 
 DATABASES = {
