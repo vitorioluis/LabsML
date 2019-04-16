@@ -112,7 +112,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'LabsML/core', 'staticfiles')
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'LabsML/core', 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'LabsML', 'media')
 MODELOS = os.path.join(BASE_DIR, 'LabsML', 'modelos')
 
