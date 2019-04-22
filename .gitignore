@@ -4,5 +4,6 @@ local_settings.py
 __pycache__
 staticfiles
 migrations
+.ipynb_checkpoints
 
 

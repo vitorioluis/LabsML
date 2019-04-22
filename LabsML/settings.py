@@ -112,18 +112,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'LabsML/core', 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'LabsML', 'templates', 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'LabsML', 'media')
 MODELOS = os.path.join(BASE_DIR, 'LabsML', 'modelos')
 
 URL_RAIZ = 'https://labsml.herokuapp.com'
 
-
 ####Heroku settings
 import dj_database_url
 
 DATABASES = {
-    'default':  dj_database_url.config(),
+    'default': dj_database_url.config(),
 }
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
@@ -137,8 +136,6 @@ try:
     from LabsML.local_settings import *
 except ImportError:
     pass
-
-
 
 # local_settings.py
 # import os
